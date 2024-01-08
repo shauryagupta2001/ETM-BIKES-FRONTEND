@@ -1,0 +1,137 @@
+
+#map {
+    height: 100vh;
+    width: 100%;
+   
+  }
+  #map-container {
+    position: relative;
+    height: 500px; /* Set a height for the map container */
+  }
+
+  #car {
+    position: absolute;
+    width: 48px; /* Adjust the width of your car image */
+    height: 48px; /* Adjust the height of your car image */
+    transform-origin: center bottom;
+    transition: transform 1s linear;
+  }
+
+  #blue-circle {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+   /* Make sure the circle is on top of the map */
+  }
+  ul{
+    list-style: none;
+    display: flex;
+    
+  }
+  /* app.component.css */
+
+  
+  .sidenav {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #eee;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+    overflow-x: hidden;
+    transition: 0.5s;
+    color: black;
+    
+    transition: all 0.4s;
+  
+    
+    
+  }
+  
+  
+  
+ 
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .main-content {
+    transition: margin-left 0.5s;
+  }
+  
+  .main-content h2, .main-content p {
+    margin-left: 20px;
+  }
+  
+  @media screen and (max-height: 50px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+
+  /* app.component.css */
+
+
+button {
+  margin: 5px;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.card {
+  width: 330px;
+  height:88vh;
+  margin: -15px auto;
+  border: 1px solid #ddd;
+  border-radius: 0px;
+}
+
+.child{
+  width:100%;
+}
+th{
+  
+  text-align: center;
+  align-items: center;
+  justify-content:centre
+}
+td{
+  
+  text-align: center;
+  align-items: center;
+  justify-content:centre
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Set the desired background color */
+  padding: 10px;
+  border-top: 1px solid #ccc; /* Optional: Add a border at the top */
+  transition: width 0.3s; /* Add a smooth transition effect */
+}
+
+.footer.expanded {
+  width: calc(100% - 345px); /* Adjust the width based on your sidebar width */
+}
+
+/* Add any additional styling for the close button or footer content here */
+
+
+/* Add any additional styling for the close button or footer content here */
+
+
+
+  
+ 

@@ -1,0 +1,165 @@
+<div id="mySidenav" [style.width.px]="isNavOpen ? 250 : 0" class="sidenav">
+    <img src="../../assets/aad583b3-d084-464c-8430-901d37fce6ee.jpg" alt="" height="130px" width="180px" style="margin: 20px 15px 0px 25px;">
+    <hr style="color: white; font-weight: 900;">
+    <a href="/"  >Riders</a>
+    <a href="/tl"  >Team Leader</a>
+    <a href="/ve"  >Hub</a>
+    <a href="/track"  >Vehicle Tracking</a>
+    <a href="/VE">Vehicles</a>
+    <a href="io" >IOT Devices</a>
+    <a href="re">Maintenance</a>
+    <a href="fi">Finance</a>
+    <a href="ter">Recovery</a>
+    <a href="#">Vendor</a>
+    <a href="/">Help</a>
+  </div>
+  
+  <div class="main-content" [style.marginLeft.px]="isNavOpen ? 250 : 0">
+    
+    <span style="font-size:30px;cursor:pointer" (click)="toggleNav()">&#9776;</span> <br>
+    
+    <div class="modal fade; modal-dialog modal-xl" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" >
+        <div class="modal-dialog modal-dialog-centered" >
+          <div class="modal-content" style="background-color: rgb(236, 236, 227);">
+           
+            <div class="modal-body">
+                <div class="container">
+                    <div  >
+                        <div class="v">
+                        <form class="form-group"><br><br>
+                             <h2 style="margin-left: 20px; margin-top: -20px;" ><strong>Add IOT</strong></h2> <br>                
+                             
+                              
+                            
+                                 <div class="d">
+                                <div class="row">
+                                    
+                              <div class='col-md-3'>
+                                <label for="">Etm Id*</label>
+                                <br>
+                                <input type="text" class="form-control" name="resno"[(ngModel)]="etm">
+                             </div>
+                              <div class='col-md-3'>
+                                <label for="">Vin*</label> <br>
+                                <input type="text" class="form-control" name="deviceID"[(ngModel)]="vin">
+                             </div>
+                              <div class='col-md-3'>
+                                <label for="">Provider Name</label> <br>
+                                <input type="text" class="form-control" name="deviceID"[(ngModel)]="pn">
+                             </div>
+                              <div class='col-md-3'>
+                                <label for="">Registration no*</label> <br>
+                                <input type="text" class="form-control" name="deviceID"[(ngModel)]="resno">
+                             </div>
+                           
+                              
+                              
+                            </div>
+                        </div>
+                    <br>
+          
+                    
+                    <div class="d">
+                        <div class="row">
+                            
+                            <div class='col-md-3'>
+                                <label for="">IOT Type*</label> <br>
+                                <input type="text" class="form-control" name="deviceID"[(ngModel)]="ioty">
+                             </div>
+                      <div class='col-md-3'>
+                        <label for="">SIM No</label> <br>
+                        <input type="text" class="form-control" name="devicetype"[(ngModel)]="simno">
+                     </div>
+                      <div class='col-md-3'>
+                        <label for="">SIM Operator</label> <br>
+                        <input type="text" class="form-control" name="devicetype"[(ngModel)]="simop">
+                     </div>
+                      <div class='col-md-3'>
+                        <label for="">IMEI</label> <br>
+                        <input type="text" class="form-control" name="devicetype"[(ngModel)]="imei">
+                     </div>
+                    
+                    </div>
+                    <br><br>
+                
+                  
+                    <div class="modal-footer" style="display: flex; justify-content: center; align-items: center;">
+                      <button class="btn btn-primary"  data-bs-toggle="modal" style="padding: 10px 100px 10px 100px; ">Cancle</button>
+                      
+                      <a href="alldata" style="text-decoration: none;color: black;"><button (click)="onset()" class="btn btn-primary" data-bs-toggle="modal" style="margin-left: 1%; padding: 10px 100px 10px 100px;">Add</button></a>
+                    </div>
+                </div>
+                           <br>
+                            
+                        </form>
+                    </div>
+                    </div>
+                    </div>
+    
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    
+      <button style="padding: 8px 55px 8px 55px; font-weight: 700; font-size: 20px; margin-left: 100px"  data-bs-target="#exampleModalToggle" data-bs-toggle="modal">+Add IOT</button>
+      
+    
+    <a href="https://docs.google.com/spreadsheets/d/14-bal83MJpCe_HEdizG25opgwB03aoHKFTqHtlGo4zo/export?format=csv&id=14-bal83MJpCe_HEdizG25opgwB03aoHKFTqHtlGo4zo&gid=880531002" style="text-decoration: none; color: black;">
+        <button style="padding: 8px 55px 8px 55px; font-weight: 700; font-size: 20px; margin-left: 10px;">Download Template</button>
+    </a>
+    <button style="padding: 8px 55px 8px 55px; font-weight: 700; font-size: 20px; margin-left: 10px"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Upload Data</button>
+    
+    
+      <table class="table" [cellPadding]="10" [cellSpacing]="7" style="border: 2px solid beige; margin-top: 17%;">
+        <tr style="background-color:  rgb(53, 19, 131); color: white">
+            <th>Sr.No.</th>
+            <th>ETM ID</th>
+            <th>VIN</th>
+            <th>Registration</th>
+            <th>IOT Type</th>
+            <th >Provider Name</th>
+            <th>SIM No</th>
+            <th>IMEI</th>
+            <th>SIM Operator</th>
+            <th> Date of installation</th>
+        </tr>
+     <tr *ngFor="let user of users; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{ user.etmid }}</td>
+        <td>{{ user.vin}}</td>
+        <td>{{ user.registration}}</td>
+        <td>{{ user.iottype }}</td>
+        <td>{{ user.providername }}</td>
+        <td>{{ user.simno }}</td>
+        <td>{{user.imei }}</td>
+        <td>{{user.simop}}</td>
+        <td>000</td>
+        
+        
+    </tr> 
+    <tr *ngFor="let row of data; let i = index">
+      <td>{{i+1}}</td>
+
+      <td *ngFor="let cell of row">{{ cell }}</td>
+    </tr>
+    </table>
+  </div>
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+  
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="file" (change)="onFileChange($event)" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="displayData()" data-bs-dismiss="modal">Upload</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

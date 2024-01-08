@@ -1,0 +1,128 @@
+<!-- Add User Button and Download Template Button -->
+<br><br>
+<button (click)="openAddUserModal()" style="padding: 8px 55px 8px 55px; font-weight: 700; font-size: 20px; margin-left: 10px">Add IOT</button>
+
+<a href="https://docs.google.com/spreadsheets/d/1JDKIxL8uGkycddWC_rvu7FGjh3kDTAWbRbUTyfNvIC4/export?format=csv&id=1JDKIxL8uGkycddWC_rvu7FGjh3kDTAWbRbUTyfNvIC4&gid=395597630" style="text-decoration: none; color: black;">
+  <button style="padding: 8px 55px 8px 55px; font-weight: 700; font-size: 20px; margin-left: 10px;">Download Template</button>
+</a>
+<button style="padding: 8px 55px 8px 55px; font-weight: 700; font-size: 20px; margin-left: 10px" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Upload Data</button><br><br><br><br><br><br><br><br><br><br>
+
+<!-- Bootstrap modal for adding a user -->
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addUserModalLabel">Add IoT</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #addUserForm="ngForm" (ngSubmit)="addUser(addUserForm)">
+          <div class="form-group">
+            <label for="sale">Date of sale</label>
+            <input type="date" class="form-control" id="sale" name="sale" [(ngModel)]="newUser.sale" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="install">Date of Installation</label>
+            <input type="date" class="form-control" id="install" name="install" [(ngModel)]="newUser.install" required>
+          </div>
+          <div class="form-group">
+            <label for="deviceNo">Device ID</label>
+            <input type="text" class="form-control" id="deviceNo" name="deviceNo" [(ngModel)]="newUser.deviceNo" required>
+          </div>
+
+          <div class="form-group">
+            <label for="deviceType">Device Type</label>
+            <input type="text" class="form-control" id="deviceType" name="deviceType" [(ngModel)]="newUser.deviceType" required>
+          </div>
+          <div class="form-group">
+            <label for="Sim">Sim No</label>
+            <input type="text" class="form-control" id="Sim" name="Sim" [(ngModel)]="newUser.Sim" required>
+          </div>
+            <!-- <div class="form-group">
+              <label for="vehicleNo">IMEI No</label>
+              <input type="text" class="form-control" id="vehicleNo" name="vehicleNo" [(ngModel)]="newUser.vehicleNo" required>
+            </div> -->
+          <div class="form-group">
+            <label for="VehicleID">Vehicle ID</label>
+            <input type="text" class="form-control" id="VehicleID" name="VehicleID" [(ngModel)]="newUser.VehicleID" required>
+          </div>
+<!-- Add change event to the subscription plan dropdown -->
+<div class="form-group">
+  <label for="plan">Service Type</label>
+  <select class="form-control" id="plan" name="plan" [(ngModel)]="newUser.plan" (change)="updateNextSubscriptionDate()" required>
+    <!-- Options are dynamically loaded from a property named 'planOptions' -->
+    <option value="">----please Select----</option>
+    <option *ngFor="let option of planOptions" [value]="option.value">{{ option.label }}</option>
+  </select>
+</div>
+
+
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Table to display users -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date Of Sale</th>
+      <th>Date of Installation</th>
+      <!-- <th>Vehicle No</th> -->
+      <th>Device ID</th>
+      <th>Device Type</th>
+      <th>SIM No</th>
+      <th>Vehicle ID</th>
+      <th>Service Type</th>
+      <th>Subscription End Date</th>
+      <th>Remaining Time</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.sale }}</td>
+      <td>{{ user.install }}</td>
+      <!-- <td>{{ user.vehicleNo}}</td> -->
+      <td>{{ user.deviceNo }}</td>
+      <td>{{ user.deviceType }}</td>
+      <td>{{ user.Sim }}</td>
+      <td>{{ user.VehicleID }}</td>
+      <td>{{ user.plan }}</td>
+      <td>{{ user.subscription | date: 'dd MMM yyyy ' }}</td>
+      <td>{{ user.remainingTime }}</td>
+      <td>{{ user.status }}</td>
+      <td>
+        <button class="btn btn-warning" (click)="editUser(i)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteUser(i)">Delete</button>
+      </td>
+    </tr>
+    <tr *ngFor="let row of data; let i = index">
+      <td *ngFor="let cell of row">{{ cell }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal for uploading data -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="file" (change)="onFileChange($event)" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="displayData()" data-bs-dismiss="modal">Upload</button>
+      </div>
+    </div>
+  </div>
+</div>

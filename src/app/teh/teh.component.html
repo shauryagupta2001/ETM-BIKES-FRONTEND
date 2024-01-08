@@ -1,0 +1,160 @@
+<div id="mySidenav" [style.width.px]="isNavOpen ? 250 : 0" class="sidenav">
+    <img src="../../assets/aad583b3-d084-464c-8430-901d37fce6ee.jpg" alt="" height="130px" width="180px" style="margin: 20px 15px 0px 25px;">
+    <hr style="color: white; font-weight: 900;">
+   
+    <h6 style="color: white; justify-content: center; margin-top: 15px; margin-left: 20px;">Super Admin Dashboard</h6>
+ 
+    <hr style="color: white; font-weight: 900;">
+    <a href="/"  >Riders</a>
+    <a href="/tl"  >Team Leader</a>
+    <a href="/VE"  >Hub</a>
+    <a href="/track"  >Vehicle Tracking</a>
+
+    <a href="/VE">Vehicles</a>
+    <a href="io" >IOT Devices</a>
+    <a href="fi">Finance</a>
+    <a href="ter">Recovery</a>
+    <a href="#">Vendor</a>
+    <a href="https://web.whatsapp.com/"  >Help</a>
+
+  </div>
+  
+  <div class="main-content" [style.marginLeft.px]="isNavOpen ? 250 : 0">
+    
+    <span style="font-size:30px;cursor:pointer" (click)="toggleNav()">&#9776;</span> <br>
+    
+    <div class="modal fade; modal-dialog modal-xl" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" >
+        <div class="modal-dialog modal-dialog-centered" >
+          <div class="modal-content" style="background-color: rgb(236, 236, 227);">
+           
+            <div class="modal-body">
+                <div class="container">
+                    <div  >
+                        <div class="v">
+                        <form class="form-group"><br><br>
+                             <h2 style="margin-left: 20px; margin-top: -20px;" ><strong>Add Recovery</strong></h2> <br>                
+                             
+                              
+                            
+                                 <div class="d">
+                                <div class="row">
+                                    
+                              <div class='col-md-3'>
+                                <label for="">Etm Id*</label>
+                                <br>
+                                <input type="text" class="form-control" name="resno"[(ngModel)]="username">
+                             </div>
+                              <div class='col-md-3'>
+                                <label for="">Vin*</label> <br>
+                                <input type="text" class="form-control" name="deviceID"[(ngModel)]="devicetype">
+                             </div>
+                              <div class='col-md-3'>
+                                <label for="">Rider Name</label> <br>
+                                <input type="text" class="form-control" name="deviceID"[(ngModel)]="resno">
+                             </div>
+                              <div class='col-md-3'>
+                                <label for="">mobile no*</label> <br>
+                                <input type="text" class="form-control" name="deviceID"[(ngModel)]="deviceID">
+                             </div>
+                           
+                              
+                              
+                            </div>
+                        </div>
+                    <br>
+          
+                    
+                    <div class="d">
+                        <div class="row">
+                            
+                            <div class='col-md-4'>
+                                <label for="">TL Name*</label> <br>
+                                <input type="text" class="form-control" name="deviceID"[(ngModel)]="password">
+                             </div>
+                      <div class='col-md-4'>
+                        <label for="">Hub</label> <br>
+                        <input type="text" class="form-control" name="devicetype"[(ngModel)]="mobile">
+                     </div>
+                    
+                    </div>
+                    <br><br>
+                
+                  
+                    <div class="modal-footer" style="display: flex; justify-content: center; align-items: center;">
+                      <button class="btn btn-primary"  data-bs-toggle="modal" style="padding: 10px 100px 10px 100px; ">Cancle</button>
+                      
+                      <a href="ter" style="text-decoration: none;color: black;" ><button (click)="onset()"  class="btn btn-primary" data-bs-toggle="modal" style="margin-left: 1%; padding: 10px 100px 10px 100px;">Add</button></a>
+                    </div>
+
+                    
+                </div>
+                           <br>
+                            
+                        </form>
+                    </div>
+                    </div>
+                    </div>
+    
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    
+      <button style="padding: 8px 55px 8px 55px; font-weight: 700; font-size: 20px; margin-left: 100px"  data-bs-target="#exampleModalToggle" data-bs-toggle="modal">+Recovery Data</button>
+      <a href="https://docs.google.com/spreadsheets/d/14-bal83MJpCe_HEdizG25opgwB03aoHKFTqHtlGo4zo/export?format=csv&id=14-bal83MJpCe_HEdizG25opgwB03aoHKFTqHtlGo4zo&gid=1465339591" style="text-decoration: none; color: black;">
+        <button style="padding: 8px 55px 8px 55px; font-weight: 700; font-size: 20px; margin-left: 10px;">Download Template</button>
+    </a>
+
+    <button style="padding: 8px 55px 8px 55px; font-weight: 700; font-size: 20px; margin-left: 10px"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Upload Data</button>
+      <table class="table" [cellPadding]="10" [cellSpacing]="7" style="border: 2px solid beige; margin-top: 19%;">
+        <tr style="background-color:  rgb(53, 19, 131); color: white">
+            <th>Sr.No.</th>
+            <th>VIN</th>
+            <th>TL Name</th>
+            <th>Rider Dues</th>
+            <th>Mobile No</th>
+            <th>Person</th>
+            <th >CreatedOne</th>
+            <th>Action</th>
+            <th>Timeline</th>
+            
+        </tr>
+     <tr *ngFor="let user of users; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{ user.vin }}</td>
+        <td>{{ user.tlname }}</td>
+        <td>{{ user.riderdues }}</td>
+        <td>{{user.phoneno}}</td>
+        <td>{{ user.person }}</td>
+        <td>{{user.createdAt }}</td>
+        <td>{{ user.action }}</td>
+        <td>{{ user.timeline }}</td>
+      
+        
+    </tr> 
+    <tr *ngFor="let row of data; let i = index">
+      <td>{{i+1}}</td>
+
+      <td *ngFor="let cell of row">{{ cell }}</td>
+    </tr>
+    </table>
+  </div>
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+  
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="file" (change)="onFileChange($event)" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="displayData()" data-bs-dismiss="modal">Upload</button>
+        </div>
+      </div>
+    </div>
+  </div>

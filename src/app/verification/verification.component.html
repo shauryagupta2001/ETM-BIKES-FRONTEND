@@ -1,0 +1,47 @@
+<button (click)="openWhatsApp()"> help
+</button>
+<!-- image-upload.component.html -->
+
+<div *ngFor="let photo of photos">
+  <img [src]="photo.avatar" alt="Photo">
+  <img [src]="photo.frontImage" alt="Photo">
+  <img [src]="photo.backImage" alt="Photo">
+  <img [src]="photo.coverImage" alt="Photo">
+</div>
+
+<input type="file" (change)="onFileChanged($event, 'avatar')" accept="image/*" />
+<input type="file" (change)="onFileChanged($event, 'coverImage')" accept="image/*" />
+<input type="file" (change)="onFileChanged($event, 'backImage')" accept="image/*" />
+<input type="file" (change)="onFileChanged($event, 'frontImage')" accept="image/*" />
+
+<button (click)="uploadFiles()">Upload Files</button>
+<div *ngFor="let photo of photos">
+  <!-- Your existing image display code here -->
+</div>
+
+<div class="file-input-container">
+  <input type="file" class="custom-file-input" (change)="onFileChanged($event, 'avatar')" accept="image/*" />
+  <label class="custom-file-label">Choose Avatar</label>
+  <span class="file-name">{{ avatar ? avatar.name : 'No file chosen' }}</span>
+</div>
+
+<div class="file-input-container">
+  <input type="file" class="custom-file-input" (change)="onFileChanged($event, 'coverImage')" accept="image/*" />
+  <label class="custom-file-label">Choose Cover Image</label>
+  <span class="file-name">{{ coverImage ? coverImage.name : 'No file chosen' }}</span>
+</div>
+
+<div class="file-input-container">
+  <input type="file" class="custom-file-input" (change)="onFileChanged($event, 'backImage')" accept="image/*" />
+  <label class="custom-file-label">Choose Back Image</label>
+  <span class="file-name">{{ backImage ? backImage.name : 'No file chosen' }}</span>
+</div>
+
+<div class="file-input-container">
+  <input type="file" class="custom-file-input" (change)="onFileChanged($event, 'frontImage')" accept="image/*" />
+  <label class="custom-file-label">Choose Front Image</label>
+  <span class="file-name">{{ frontImage ? frontImage.name : 'No file chosen' }}</span>
+</div>
+
+<button (click)="uploadFiles()">Upload Files</button>
+

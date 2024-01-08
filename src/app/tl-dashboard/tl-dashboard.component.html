@@ -1,0 +1,170 @@
+<div id="mySidenav" [style.width.px]="isNavOpen ? 250 : 0" class="sidenav">
+    <img src="../../assets/aad583b3-d084-464c-8430-901d37fce6ee.jpg" alt="" height="130px" width="180px" style="margin: 20px 15px 0px 25px;">
+    <hr style="color: white; font-weight: 900;">
+  
+      <h5 style="color: white; justify-content: center; margin-top: 15px; margin-left: 25px;">Hub Dashboard</h5>
+  
+      <hr style="color: white; font-weight: 900;">
+      <!-- <a href=""  >Verification</a> -->
+      <a href="/VE">Vehicle Add</a>
+      <a href="io" >IOT</a>
+      <a href="re">Maintenance</a>
+      <a href="fi">Finance</a>
+      <a href="ter">Recovery</a>
+    </div>
+    
+    <div class="main-content" [style.marginLeft.px]="isNavOpen ? 250 : 0">
+      
+      <span style="font-size:30px;cursor:pointer" (click)="toggleNav()">&#9776;</span> <br>
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        #authorization-section,
+        #kyc-section,
+        #recovery-section {
+            flex: 1;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+
+<body>
+
+    <header>
+        <h1>TL Dashboard</h1>
+    </header>
+
+    <section>
+        <div id="authorization-section">
+            <h2>Authorization Verification</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>VIN</th>
+                        <th>Rider</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Add your data rows here -->
+                    <tr>
+                        <td>1</td>
+                        <td>ABC123</td>
+                        <td>John Doe</td>
+                        <td>Verified</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>XYZ789</td>
+                        <td>Jane Smith</td>
+                        <td>Pending</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="kyc-section">
+            <h2>KYC Documents</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Document ID</th>
+                        <th>Document Type</th>
+                        <th>Expiration Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Add your KYC document data rows here -->
+                    <tr>
+                        <td>101</td>
+                        <td>Driver's License</td>
+                        <td>2023-12-31</td>
+                        <td>Valid</td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>Passport</td>
+                        <td>2024-05-15</td>
+                        <td>Expired</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="recovery-section">
+            <h2>Recovery Tickets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>Date</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Add your recovery ticket data rows here -->
+                    <tr>
+                        <td>201</td>
+                        <td>2023-01-15</td>
+                        <td>Lost Vehicle</td>
+                        <td>In Progress</td>
+                    </tr>
+                    <tr>
+                        <td>202</td>
+                        <td>2023-02-20</td>
+                        <td>Accident</td>
+                        <td>Closed</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</body>
+    </div>
+   
+

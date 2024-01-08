@@ -1,0 +1,81 @@
+/* app.component.css */
+
+  
+.sidenav {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(53, 53, 163);
+    overflow-x: hidden;
+    transition: 0.5s;
+    
+    
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    font-weight: 700;
+  }
+  
+  .sidenav a:hover {
+    color: rgb(53, 53, 163);;
+    background-color: white;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .main-content {
+    transition: margin-left 0.5s;
+  }
+  
+  .main-content h2, .main-content p {
+    margin-left: 20px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+  .v{
+    background-color: rgb(236, 236, 227);;
+}
+
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 25%;
+    }
+
+    th, td {
+       
+        
+        white-space: nowrap;
+        word-wrap: break-word;
+        border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+    }
+
+    th {
+        background-color: rgb(53, 19, 131);
+        color: white;
+    }
+
